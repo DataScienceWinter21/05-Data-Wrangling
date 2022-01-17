@@ -1,0 +1,148 @@
+---
+title: "Data Wrangling"
+author: "Bastola"
+date: "`r format(Sys.Date(), ' %B %d %Y')`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      collapse = TRUE, 
+                      comment=NA, 
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.height = 4, fig.width = 6, fig.align='center')
+
+
+library(dplyr)
+library(dslabs)
+library(ggplot2)
+library(ggthemes)
+library(tidyverse)
+library(dslabs)
+library(datasauRus)
+```
+
+
+
+```{r}
+library(babynames)
+knitr::kable(head(babynames), type = "html")
+```
+
+## Your Turn 1
+
+Which of these is NOT a way to select the `name` and `n` columns together?
+
+
+```{r}
+select(babynames, -c(year, sex, prop))
+select(babynames, name:n)
+select(babynames, starts_with("n"))
+select(babynames, ends_with("n"))
+```
+
+
+*Answer:*
+
+
+## Your Turn 2
+
+Use filter() with the logical operators to extract:
+
+### a. All of the names where prop is greater than or equal to 0.08
+
+```{r}
+
+```
+
+### b. All of the babies named "Rose"
+
+```{r}
+
+```
+
+
+### c. All of the names that have a missing value for n
+
+```{r}
+
+```
+
+
+## Your Turn 3
+
+Use the codes mentioned so far to compute three statistics:
+
+- the total number of children who ever had your name
+- the maximum number of children given your name in a single year
+- the mean number of children given your name per year
+
+
+```{r}
+
+
+```
+
+## Your Turn 4
+
+Use Boolean operators to alter the code below to return only the rows that contain:
+
+### a. Girls named Rhea
+
+```{r}
+
+```
+
+
+### b. Names that were used by exactly 5 or 6 children in 1990
+
+```{r}
+
+
+```
+
+
+### c. Names that are one of Apple, Yoroi, Ada
+
+```{r}
+
+```
+
+## Your Turn 5
+
+Find the year your first name is most common.
+
+```{r}
+
+
+```
+
+## Your Turn 6
+
+### a. Use min_rank() and mutate() to rank each row in babynames from largest prop to smallest prop.
+
+```{r}
+
+```
+
+
+### b. Compute each name's rank within its year and sex.
+
+```{r}
+
+```
+
+
+### c. Then compute the median rank for each combination of name and sex, and arrange the results from highest median rank to lowest.
+
+
+```{r}
+
+
+```
+
+
